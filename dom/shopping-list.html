@@ -1,38 +1,48 @@
 <!-- source code available : https://github.com/mdn/learning-area/blob/master/javascript/apis/document-manipulation/shopping-list.html -->
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Shopping list example</title>
-    <style>
-      li {
-        margin-bottom: 10px;
-      }
+	<html>
+<head>
+<meta charset="utf-8">
+<title>Shopping list example</title>
+<link rel="stylesheet" type="text/css" href="shopping-list.css">
+</head>
+<body>
 
-      li button {
-        font-size: 8px;
-        margin-left: 20px;
-        color: #666;
-      }
-    </style>
-  </head>
-  <body>
+<h1>My shopping list</h1>
 
-    <h1>My shopping list</h1>
+<div>
+<label for="item">Enter a new item:</label>
+<input type="text" name="item" id="item">
+<button onclick="addItem()">Add item</button>
+</div>
 
-    <div>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
-    </div>
+<ul id="shopList">
 
-    <ul>
 
-    </ul>
+</ul>
 
-    <script>
+<script>
+function addItem(){
+var input = document.getElementById("item").value;
 
-    </script>
-  </body>
+document.getElementById("item").value = "";
+
+var li = document.createElement("LI");
+var span = document.createElement("SPAN");
+var button = document.createElement("BUTTON");
+
+li.appendChild(span);
+li.appendChild(button);
+
+span.textContent = input;
+button.innerHTML = "Delete";
+button.onclick = function(){document.getElementById("shopList").removeChild(li)};
+
+document.getElementById("shopList").appendChild(li);
+
+document.getElementById("item").focus();
+}
+</script>
+</body>
 </html>
