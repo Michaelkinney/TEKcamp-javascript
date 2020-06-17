@@ -4,13 +4,17 @@
 // Problem 1: Refactor the for() loop to be a while loop.
 //
 
-for(let i=0; i<10; i++) {
-    console.log(" the value of i in the loop is : " + i);
-}
-
 
 //your code...
 
+for (let i = 0; i < 10; i++) {
+    console.log(" the value of i in the loop is : " + i);
+}
+var i = 0;
+while (i < 10) {
+    console.log(" the value of i in the loop is : " + i);
+    i++;
+}
 
 
 
@@ -20,6 +24,29 @@ for(let i=0; i<10; i++) {
 //use javascript to compute the value of the above statement. Each individual operation needs to be a function expression. run all the functions after defining them, and print the answer to the console.
 
 //your code...
+
+(30+2)(20) / (10^2)
+
+function sum(num1, num2) {
+    return num1 + num2;
+}
+function multi(num1, num2) {
+    return num1 * num2;
+}
+function div(num1, num2) {
+    return num1 / num2;
+}
+function raise(num1, num2) {
+    return Math.pow(num1, num2);
+}
+
+var sum = sum(30, 2);
+var multi = multi(sum, 20);
+var raise = raise(10, 2);
+var div = div(multi, raise);
+
+console.log('The result is ' + div);
+
 
 
 /************************************************************* */
@@ -38,6 +65,100 @@ for(let i=0; i<10; i++) {
 // 125
 // undefined
 // ""
+
+if (20) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if (0) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// falsy
+
+if ("zero") {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if (zero) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if (null) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// falsy
+
+if ("0") {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if (!"") {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if ({}) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+if (() => {console.log("hello TEKcamp!")) {
+    console.log('truthy');
+} else {
+    console.log('falsy');
+}
+// truthy
+
+   if (125) {
+        console.log('truthy');
+    } else {
+        console.log('falsy');
+    }
+    // truthy
+
+    if (undefined) {
+        console.log('truthy');
+    } else {
+        console.log('falsy');
+    }
+    // falsy
+
+    if ("") {
+        console.log('truthy');
+    } else {
+        console.log('falsy');
+    }
+    // falsy
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -62,11 +183,47 @@ if(day === "monday") {
     console.log("It's a weekend!")
 }
 
+var day = 'monday'
+    switch (day) {
+        case 'monday':
+            console.log('we got a long week ahead of us...');
+            break;
+        case 'tuesday':
+            console.log('tuesdays are still beterr than mondays, but LONG way to go still');
+            break;
+        case 'wednesday':
+            console.log('we are smack dab in the middle of the week');
+            break;
+        case 'thursday':
+            console.log('Thusday night... the mood is right');
+            break;
+        case 'friday':
+            console.log('TGIF. Friday truly is the best day of the week');
+            break;
+        default:
+            console.log('its the weekend');
+    }
+
+
+
+
 
 
 /************************************************************* */
 // Problem 5: Refactor the following functions to use a ternary expression:
-const age = 10;
+    const age = 10;
+
+    var result = age > 21 ? 'adult' : 'minor';
+    console.log(result);
+
+    var result2 = age > 13 && age < 19 ? 'teen' : 'not a teenager';
+    console.log(result2);
+
+    var result3 = age > 65 ? 'retired' : 'still working';
+    console.log(result3);
+
+
+
 if (age > 21) console.log("adult"); else {
     console.log("minor");
 }
@@ -97,6 +254,27 @@ if (age > 65) console.log("retired"); else {
 
 //your code...
 
+  var mySelf = {
+    name: 'Michael',
+    age: 29,
+    gender: 'M',
+    hobbies: 'Gardening',
+    profession: 'Lab Chemist',
+    education: "Chemist",
+    learn: function () {
+        console.log(this.name);
+    },
+    yearBorn: function () {
+        return 2020 - this.age;
+    },
+    job: function () {
+        console.log(this.profession);
+    }
+};
+
+mySelf.learn();
+mySelf.job();
+console.log(mySelf.yearBorn());
 
 /************************************************************* */
 // Problem 6: Create an object literal that represents any object in the real world that you like.  Try to come up with a realistic set of properties and methods that would accurately describe that object.  In at least one of your methods, use the this keyword to refer back to one of the properties you defined on this object literal.  
@@ -104,12 +282,44 @@ if (age > 65) console.log("retired"); else {
 //your code...
 
 
+var myCar = {
+    name: 'Taco',
+    year: 2017,
+    gender: 'F',
+    miles: 30000,
+    profession: 'Chauffeur',
+    color: "Gray",
+    showMiles: function () {
+        console.log(this.miles);
+    },
+    yearsOld: function () {
+        return 2020 - this.year;
+    },
+    job: function () {
+        console.log(this.profession);
+    }
+};
+
+myCar.showMiles();
+console.log(myCar.gender);
+console.log(myCar.yearsOld());
+
+
 
 /************************************************************* */
 //Problem 7: create a function that outputs your 3 favorite data types, with a message explaining why you like that data type.
 
 //your code...
+    function favDataTypes() {
+        var fav1 = 'boolean';
+        var fav2 = 'string';
+        var fav3 = 'objects';
 
+        console.log('My first favorite data type is ' + fav1 + ' because they are fun');
+        console.log('My second favorite data type is ' + fav2 + ' because they are simple and helpful');
+        console.log('My third favorite data type is ' + fav3 + ' because you can add properties and functions');
+    }
+    favDataTypes();
 
 
 /************************************************************* */

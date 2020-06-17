@@ -7,17 +7,51 @@
 
 //your code...
 
+function conversion(degree, temperature) {
+    var result;
+    var temperature = parseFloat(temperature)
+    if (degree == 'c') {
+        result = temperature * 9 / 5 + 32;
+    }
+    else if (degree == 'f') {
+        result = (result - 32) * 5 / 9;
+    }
+    return result;
+}
+var conversionResult = conversion('f', 90);
+console.log(conversionResult);
 
 
 
+function convert(degree) {
+    var x;
+    if (degree == "") {
+        x = document.getElementById("c").value * 9 / 5 + 32;
+        document.getElementById("f").value = Math.round(x);
+    } else {
+        x = (document.getElementById("f").value - 32) * 5 / 9;
+        document.getElementById("c").value = Math.round(x);
+    }
+}
 
 
 /************************************************************* */
 // Problem 2:
-// Write a JavaScript function to determine if someone is old enough to vote. Declare a variable for age and write a conditional statement for whether that age is old enough to vote. Console log "yes" or "no"
+// Write a JavaScript function to determine if someone is old enough to vote.Declare a variable for age and write a conditional statement for whether that age is old enough to vote.Console log "yes" or "no"
 
 //your code...
 
+function canVote(age) {
+    var age = age;
+
+    if (age >= 18) {
+        console.log(' Yes, he can vote!');
+    }
+    else {
+        console.log(' No, he cant vote!');
+    }
+
+  }
 
 
 
@@ -30,10 +64,15 @@
 
 //your code...
 
+function convertString() {
+    var string = 'The five boxing wizards jump quickly';
+    var array = string.split(' ');
+    console.log(array);
 
-
-
-
+    var arraytoString = array.join(' ');
+    console.log(arraytoString);
+}
+console.log(convertString());
 
 
 /************************************************************* */
@@ -42,19 +81,44 @@
 
 //your code...
 
+function reverseNumber(number) {
+    var stringNumber = number.toString();
+    var array = stringNumber.split('');
+    var reverseArray = array.reverse();
 
+    console.log(reverseArray);
+    var arrayToString = array.join();
+    console.log('New String after join: ' + arrayToString);
+
+}
+
+reverseNumber(12345);
 
 
 
 /************************************************************* */
 // Problem 5:
-// Write a JavaScript function that creates a car object using information about your car. Include the make, model, year, and color. Write a function to get the year, color, make, and model in that order.
+// Write a JavaScript function that creates a car object using information about your car. Include the make, model, year, and color. 
+//Write a function to get the year, color, make, and model in that order.
 
 //your code...
 
+let createCar = function (year, color, make, model) {
 
+    let myCar = {
+        year: 2017,
+        color: 'gray',
+        make: 'Toyota',
+        model: 'Tacoma'
+    };
+    return myCar;
+}
 
+function getCarInfo() {
+    console.log(createCar().year, createCar().color, createCar().make, createCar().model);
+}
 
+getCarInfo();
 
 
 /************************************************************* */
@@ -64,6 +128,14 @@
 
 //your code...
 
+for (var i = 0; i <= 15; i++) {
+
+    if (i % 2 == 0) {
+        console.log(i + ' is even number');
+    } else {
+        console.log(i + ' is odd number');
+    }
+}
 
 
 
@@ -72,6 +144,20 @@
 // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
 //your code...
+
+for (var i = 1; i <= 100; i++) {
+
+    if (i % 3 == 0 && i % 5 == 0) {
+        console.log(i + ' TEKcamp');
+    }
+    else if (i % 3 == 0) {
+        console.log(i + 'TEK');
+    }
+    else if (i % 5 == 0) {
+        console.log(i + 'camp');
+    }
+}
+
 
 
 /************************************************************* */
@@ -83,16 +169,42 @@ const nums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
 
 //your code...
 
-
+for (var i = 0; i < nums.length - 1; i += 3) {
+    console.log(i);
+}
 
 // Problem 9:
 const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {school : 'TEKcamp'} ];
 //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
 
+var school = foodArray[foodArray.length - 1];
+console.log(school);
+
 const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
 // Using both the foodArray and the adjectiveArray, make a
 // "for" loop that console.log()'s a sentence for each
 // corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  "Potatoes are salty", "Lemon is sour".
+
+
+for (var i = 0; i < foodArray.length - 1; i++) {
+
+    var food = foodArray[i];
+    var plural = food.endsWith("s");
+    var flavor = adjectiveArray[i];
+    if (plural == true) {
+        console.log(food + ' are ' + flavor);
+    } else {
+        console.log(food + ' is ' + flavor);
+    }
+
+}
+
+
+
+
+
+
+
 
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
